@@ -1,28 +1,114 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Layout</title>
-<link rel="stylesheet"
-	href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css" />
-<link rel="stylesheet"
-	href="/webjars/bootstrap/3.3.6/css/bootstrap-theme.min.css" />
-</head>
-
-<body>
-	<div class="container">
-		<div class="navbar">
-			<div class="navbar-inner">
-				<a class="brand" href="/"> Home</a> <a class="brand"
-					href="https://github.com/ultraq/thymeleaf-layout-dialect">
-					Thymeleaf - Layout </a>
-
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Layout</title>
+		<!--
+		<link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap-theme.min.css" />
+		-->
+		<style>
+			body {
+			    font-family: 'Segoe UI', Arial;
+			    font-size: 16px;
+			    margin: 30px;
+			    margin-top: 10px;
+			}
+			button,
+		    button[type="submit"],
+		    input[type="submit"],
+		    a.button {
+		        background-color: #222266;
+		        border: none;
+		        color: #ffffff;
+		        display: inline-block;
+			    font-family: 'Segoe UI', Arial;
+			    font-size: 16px;
+		        padding: 5px 10px;
+		        text-decoration: none;
+		        text-transform: capitalize;
+			}
+			button:hover,
+		    button[type="submit"]:hover,
+		    input[type="submit"]:hover,
+		    a.button:hover {
+		        background-color: #155f88;
+		        box-shadow: none;
+		        color: #fff;
+		        outline: 0;             
+		        text-decoration: none;
+		    }
+			button.delete,
+		    button[type="submit"].delete,
+		    input[type="submit"].delete,
+		    a.button.delete {
+		        background-color: #882222;
+		    }
+		    h1 {
+		    	font-size: 22px;
+		    }
+		    input[type="text"],
+		    input[type="number"] {
+			    border: 1px solid #cdcdcd;
+				font-family: 'Segoe UI', Arial;
+			    font-size: 16px;
+			    height: 18px;
+			    padding: 4px 6px;
+			}
+			select {
+			    border: 1px solid #cdcdcd;
+			    font-family: 'Segoe UI', Arial;
+			    font-size: 16px;
+			    padding: 4px 6px;
+			}
+		    table, tr {
+		    	border: 1px solid #cdcdcd;
+		    	border-collapse: collapse;
+		    }
+		    th {
+		    	background-color: #fafafa;
+		    	font-weight: bold;
+		    	text-align: left;
+		    }
+		    th, td {
+		    	padding: 5px 20px;
+		    }
+		    .brand {
+		    	display: none;
+		    }
+			.form-group {
+				margin-bottom: 10px;
+			}
+			.form-group:last-of-type {
+				margin-bottom: 20px;
+			}
+			.item .item-image {
+				border: 1px solid #cdcdcd;
+			    margin-top: 10px;
+				padding: 10px 20px;
+				width: 200px;
+			}
+		    .row {
+		    	margin: 20px 0px;
+		    }
+		    .row:last-of-type {
+		    }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="navbar">
+				<div class="navbar-inner">
+					<!--<a class="brand" href="/"> Home</a> <a class="brand"
+						href="https://github.com/ultraq/thymeleaf-layout-dialect">
+						Thymeleaf - Layout </a>-->
+				</div>
 			</div>
+			<h1 layout:fragment="header">Layout</h1>
+			<div layout:fragment="content">Fake content</div>
 		</div>
-		<h1 layout:fragment="header">Layout</h1>
-		<div layout:fragment="content">Fake content</div>
-	</div>
-	<script src="/webjars/bootstrap/3.3.6/js/bootstrap.min.js" />
-</body>
+		<!--
+		<script src="/webjars/bootstrap/3.3.6/js/bootstrap.min.js" />
+		-->
+	</body>
 </html>

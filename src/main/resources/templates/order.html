@@ -2,48 +2,39 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
 	layout:decorator="layout">
-<head>
-<title>Order</title>
-<style>
-	body {
-	    font-family: 'Segoe UI', Arial;
-	    font-size: 16px;
-		padding: 0px 20px;	
-	}
-    .row {
-    	margin-bottom: 10px;
-    }
-</style>
-</head>
-<body>
-	<h1 layout:fragment="header">Order</h1>
-	<div layout:fragment="content" class="container">
-
-		<div class="row">
-			<div class="col-md-2">Customer</div>
-			<div class="col-md-2"
-				th:text="${@customerClient.getOne(order.customerId).firstname}+' '+${@customerClient.getOne(order.customerId).name}"></div>
+	<head>
+		<title>Order</title>
+	</head>
+	<body>
+		<h1 layout:fragment="header">Order</h1>
+		<div layout:fragment="content" class="container">
+			<div class="row">
+				<div class="col-md-2"><b>Customer</b></div>
+				<div class="col-md-2" th:text="${@customerClient.getOne(order.customerId).firstname} + ' ' + ${@customerClient.getOne(order.customerId).name}"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2 col-md-offset-1"><b>Ordered products</b></div>
+			</div>
+			<table>
+				<thead>
+					<tr>
+						<th>Product</th>
+						<th>Quantity</th>
+						<th>Price</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="orderLine : ${order.orderLine}">
+						<td th:text="${@catalogClient.getOne(orderLine.itemId).name}"></td>
+						<td th:text="${orderLine.count}"></td>
+						<td><span th:text="${@catalogClient.getOne(orderLine.itemId).price}"></span> €</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="row">
+				<div class="col-md-2"><b>Total price</b></div>
+				<div class="col-md-2"><span th:text="${order.totalPrice(@catalogClient)}"></span> €</div>
+			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-2">Total price</div>
-			<div class="col-md-2" th:text="${order.totalPrice(@catalogClient)}"></div>
-		</div>
-
-		<div class="row">
-			<div class="col-md-2 col-md-offset-1">Ordered items</div>
-		</div>
-
-		<div class="row">
-			<div class="col-md-2">Quantity</div>
-			<div class="col-md-2">Item</div>
-			<div class="col-md-2">Price</div>
-		</div>
-
-		<div class="row" th:each="orderLine : ${order.orderLine}">
-			<div class="col-md-2" th:text="${orderLine.count}"></div>
-			<div class="col-md-2" th:text="${@catalogClient.getOne(orderLine.itemId).name}"></div>
-			<div class="col-md-2" th:text="${@catalogClient.getOne(orderLine.itemId).price}"></div>
-		</div>
-	</div>
-</body>
+	</body>
 </html>
