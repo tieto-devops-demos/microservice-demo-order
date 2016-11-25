@@ -41,7 +41,7 @@ I have created an order
   
 I navigate to the orders list
   Open Ordering App 
-  Wait Until Page Contains  Order : View all  30 sec
+  Wait Until Page Contains  Orders  30 sec
   
 I can find my order
   [Documentation]  Goes to the order details from the main page view 
@@ -70,7 +70,7 @@ I order a IPod Nano
   Select From List By Label  orderLine0.itemId  iPod nano
   
 I submit the order
-  Click Button  submit
+  Click Button  Create Order
 
 My order was successful
-  Wait Until Page Contains  Success  30 sec 
+  Wait Until Page Contains  Order created  30 sec 
