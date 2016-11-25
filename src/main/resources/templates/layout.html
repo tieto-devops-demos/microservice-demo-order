@@ -9,6 +9,7 @@
 		-->
 		<style>
 			body {
+				color: #282830;
 			    font-family: 'Segoe UI', Arial;
 			    font-size: 16px;
 			    margin: 30px;
@@ -42,7 +43,13 @@
 		    button[type="submit"].delete,
 		    input[type="submit"].delete,
 		    a.button.delete {
-		        background-color: #882222;
+		        background-color: #662222;
+		    }
+			button.delete:hover,
+		    button[type="submit"].delete:hover,
+		    input[type="submit"].delete:hover,
+		    a.button.delete:hover {
+		        background-color: #bb4444;
 		    }
 		    h1 {
 		    	font-size: 22px;
@@ -82,6 +89,30 @@
 			.form-group:last-of-type {
 				margin-bottom: 20px;
 			}
+		    .icon {
+		    	background-repeat: no-repeat;
+		    	background-size: 36px;
+		    	display: inline-block;
+		    	height: 36px;
+		    	width: 36px;
+		    }
+		    .icon.customer-icon {
+				background-image: url('/images/customer.png');
+		    }
+		    .icon.customers-icon {
+				background-image: url('/images/customers.png');
+		    }
+		    .icon.order-icon,
+		    .icon.orders-icon {
+				background-image: url('/images/order.png');
+		    }
+		    .icon.product-icon,
+		    .icon.products-icon {
+				background-image: url('/images/product.png');
+		    }
+		    .iconed-title {
+				vertical-align: super;
+		    }
 			.item .item-image {
 				border: 1px solid #cdcdcd;
 			    margin-top: 10px;
