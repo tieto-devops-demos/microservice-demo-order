@@ -73,4 +73,4 @@ I submit the order
   Click Button  Create Order
 
 My order was successful
-  Wait Until Page Contains  Order created  30 sec 
+  Wait Until Page Contains  Success  30 sec 
