@@ -46,10 +46,10 @@ I navigate to the orders list
 I can find my order
   [Documentation]  Goes to the order details from the main page view 
   ...              and checks all the order details there
-  Click Link  xpath=/html/body/div[2]/div/a
-  Wait Until Page Contains  Order
-#  ${name}=  Get Text  xpath=/html/body/div/div[2]/div[1]/div[2]
-#  Should Be Equal  ${name}  Rod Johnson
+#  Click Link  xpath=/html/body/div[2]/div/a
+  Wait Until Page Contains  Orders
+  ${name}=  Get Text  xpath=/html/body/div[2]/div/table/tbody/tr/td[2]
+  Should Be Equal  ${name}  Rod Johnson
 #  ${quantity}=  Get Text  xpath=/html/body/div/div[2]/table/tbody/tr/td[3]
 #  Should be Equal  ${quantity}  1
 #  ${item}=  Get Text  xpath=/html/body/div/div[2]/div[5]/div[2]
