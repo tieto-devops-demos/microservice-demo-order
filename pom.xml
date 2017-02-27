@@ -3,19 +3,36 @@
 	<modelVersion>4.0.0</modelVersion>
 	<name>Order</name>
 	<parent>
-		<groupId>com.ewolff</groupId>
-		<artifactId>microservice-demo</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.3.5.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
+	<groupId>com.ewolff</groupId>
+	<version>0.0.1-SNAPSHOT</version>
 	<artifactId>microservice-demo-order</artifactId>
 
     <properties>
+			<java.version>1.8</java.version>
+			<spring-cloud.version>Brixton.RELEASE</spring-cloud.version>
        <robot.browser>chrome</robot.browser>                           <!-- Local default browser -->
        <robot.tag></robot.tag>
        <robot.remote_url>None</robot.remote_url>                        <!-- Selenium GRID hub address -->
        <robot.url>http://localhost:9001</robot.url>                   <!-- SUT -->
    </properties>
+
+	 <dependencyManagement>
+ 		<dependencies>
+ 			<dependency>
+ 				<groupId>org.springframework.cloud</groupId>
+ 				<artifactId>spring-cloud-dependencies</artifactId>
+ 				<version>Brixton.RELEASE</version>
+ 				<type>pom</type>
+ 				<scope>import</scope>
+ 			</dependency>
+ 		</dependencies>
+ 	</dependencyManagement>
 
 	<dependencies>
 
@@ -88,7 +105,7 @@
 			<artifactId>bootstrap</artifactId>
 			<version>3.3.6</version>
 		</dependency>
-		
+
 	    <dependency>
 	        <groupId>com.github.markusbernhardt</groupId>
 	        <artifactId>robotframework-selenium2library-java</artifactId>
@@ -97,13 +114,17 @@
 	    </dependency>
 
 	</dependencies>
-	
+
 	<profiles>
-	
+
 	   <profile>
 	     <id>robot</id>
 		 <build>
 		    <plugins>
+					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-maven-plugin</artifactId>
+					</plugin>
 		      <plugin>
 	            <groupId>org.apache.maven.plugins</groupId>
 	            <artifactId>maven-surefire-plugin</artifactId>
@@ -141,9 +162,9 @@
 		        </plugin>
 		      </plugins>
 		   </build>
-	     
+
 	   </profile>
-	
+
 	</profiles>
 
 </project>
