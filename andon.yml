@@ -58,7 +58,7 @@ integration_testing:
                 build_path: .
                 run_if_conditions: passed
 
- selenium:
+  selenium:
     version: "2.53.1"
     browsers:
     - name: chrome
