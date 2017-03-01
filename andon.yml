@@ -54,7 +54,7 @@ integration_testing:
         jobs:
           - job: Robot
             tasks:
-              - task: mvn -P robot -Drobot.url=http://order:8080 -Drobot.remote_url=http://hub:4444/wd/hub -Drobot.browser=chrome install
+              - task: mvn -Probot -Drobot.url=http://order:8080 -Drobot.remote_url=http://hub:4444/wd/hub -Drobot.browser=chrome clean install
                 build_path: .
                 run_if_conditions: passed
 
