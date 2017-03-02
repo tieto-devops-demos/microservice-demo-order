@@ -22,6 +22,15 @@
        <robot.url>http://localhost:9001</robot.url>                   <!-- SUT -->
    </properties>
 
+	 <build>
+ 		<plugins>
+ 			<plugin>
+ 				<groupId>org.springframework.boot</groupId>
+ 				<artifactId>spring-boot-maven-plugin</artifactId>
+ 			</plugin>
+ 		</plugins>
+ 	</build>
+
 	 <dependencyManagement>
  		<dependencies>
  			<dependency>
@@ -121,10 +130,6 @@
 	     <id>robot</id>
 		 <build>
 		    <plugins>
-					<plugin>
-						<groupId>org.springframework.boot</groupId>
-						<artifactId>spring-boot-maven-plugin</artifactId>
-					</plugin>
 		      <plugin>
 	            <groupId>org.apache.maven.plugins</groupId>
 	            <artifactId>maven-surefire-plugin</artifactId>
