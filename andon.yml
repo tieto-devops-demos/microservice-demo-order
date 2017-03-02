@@ -45,7 +45,6 @@ integration_testing:
       - maven
     test_services:
       owasp_zap: false
-      selenium_grid: true
       service_virtualization: true
       robot_framework: true
       cucumber: false
@@ -53,8 +52,10 @@ integration_testing:
       - stage: IntegrationTests
         jobs:
           - job: Robot
+            selenium_grid: true
+            browser_stack: false
             tasks:
-              - task: mvn -Probot -Drobot.url=http://order:8080 -Drobot.remote_url=http://hub:4444/wd/hub -Drobot.browser=chrome clean install
+              - task: mvn -P robot -Drobot.url=http://order:8080 -Drobot.remote_url=http://hub:4444/wd/hub -Drobot.browser=chrome install
                 build_path: .
                 run_if_conditions: passed
 
