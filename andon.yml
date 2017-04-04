@@ -29,7 +29,6 @@ compile:
             - task: sudo docker build -f Dockerfile -t order:$GO_PIPELINE_COUNTER .
               build_path: .
               run_if_conditions: passed
-            - task: sudo docker login -u eekamak -p $passu
 
 integration_testing:
   compose_file_path: /src/test/resources
