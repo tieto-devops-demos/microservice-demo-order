@@ -16,6 +16,7 @@ import com.ewolff.microservice.order.clients.CustomerClient;
 import com.ewolff.microservice.order.clients.Item;
 
 @Controller
+@RequestMapping("/ui")
 class OrderController {
 
 	private OrderRepository orderRepository;
