@@ -3,30 +3,18 @@ package com.ewolff.microservice.order.logic;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 import com.ewolff.microservice.order.clients.CatalogClient;
 
-@Entity
-@Table(name = "ORDERTABLE")
 class Order {
 
-	@Id
-	@GeneratedValue
 	private long id;
 
 	private long customerId;
 
-	@OneToMany(cascade = CascadeType.ALL)
 	private List<OrderLine> orderLine;
 
 	public Order() {
