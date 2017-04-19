@@ -6,9 +6,10 @@ import java.util.List;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.ewolff.microservice.order.clients.CatalogClient;
-
+@Document(collection = "order")
 class Order {
 
 	private long id;

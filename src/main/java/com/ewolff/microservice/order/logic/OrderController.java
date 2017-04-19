@@ -27,6 +27,8 @@ class OrderController {
 	private CatalogClient catalogClient;
 
 	@Autowired
+	private NextSequenceService nextSequenceService; 
+	@Autowired
 	private OrderController(OrderService orderService,
 			OrderRepository orderRepository, CustomerClient customerClient,
 			CatalogClient catalogClient) {
@@ -71,6 +73,7 @@ class OrderController {
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public ModelAndView post(Order order) {
+		order.setId(nextSequenceService.getNextSequence());
 		order = orderService.order(order);
 		return new ModelAndView("success");
 	}
