@@ -55,7 +55,7 @@ integration_testing:
             selenium_grid: true
             browser_stack: false
             tasks:
-              - task: mvn -P robot -Drobot.url=http://order:8080 -Drobot.remote_url=http://hub:4444/wd/hub -Drobot.browser=chrome install
+              - task: mvn -P robot -Drobot.url=http://order:8080/ui/ -Drobot.remote_url=http://hub:4444/wd/hub -Drobot.browser=chrome install
                 build_path: .
                 run_if_conditions: passed
 
