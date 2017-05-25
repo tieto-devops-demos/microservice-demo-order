@@ -16,6 +16,7 @@ import com.ewolff.microservice.order.clients.CustomerClient;
 import com.ewolff.microservice.order.clients.Item;
 
 @Controller
+@RequestMapping("/ui")
 class OrderController {
 
 	private OrderRepository orderRepository;
@@ -25,6 +26,8 @@ class OrderController {
 	private CustomerClient customerClient;
 	private CatalogClient catalogClient;
 
+	@Autowired
+	private NextSequenceService nextSequenceService; 
 	@Autowired
 	private OrderController(OrderService orderService,
 			OrderRepository orderRepository, CustomerClient customerClient,
@@ -70,6 +73,7 @@ class OrderController {
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public ModelAndView post(Order order) {
+		order.setId(nextSequenceService.getNextSequence());
 		order = orderService.order(order);
 		return new ModelAndView("success");
 	}
