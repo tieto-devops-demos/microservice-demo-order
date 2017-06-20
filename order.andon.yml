@@ -37,3 +37,26 @@ pipelines:
                    arguments:
                     - "-c" 
                     - "mvn sonar:sonar -Dsonar.login=$SONARUSER -Dsonar.password=$SONARPASSWORD -Dsonar.host.url=http://sonarqube:9000"                    
+      - test: # name of stage
+          jobs:
+            integration_tests: # name of the job
+              andon: # andon job configuration
+                image: "andon.artifactorypro.shared.pub.tds.tieto.com/andon-gocd-agent-java8-maven3:17.04" # elastic agent image
+                service_virtualization:
+                  #version: "1.2.0"
+                  marifiles:
+                    - src/test/resources/service-virtualization/VirtualServices/catalog.mari
+                deploy_env:
+                  docker_compose:
+                    - src/test/resources/docker-compose.yml
+              artifacts:
+               - test:
+                   source: target/*
+              tabs:
+                robot_report: robotframework-reports/report.html
+              tasks:
+               - exec: # indicates type of task
+                   command: bash
+                   arguments:
+                    - "-c" 
+                    - "mvn -P robot -Drobot.url=http://order:8080 -Drobot.remote_url=http://hub:4444/wd/hub -Drobot.browser=chrome install"
