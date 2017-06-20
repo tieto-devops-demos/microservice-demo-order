@@ -21,7 +21,7 @@ pipelines:
                    command: bash
                    arguments:
                     - "-c" 
-                    - "mvn clean -Djava.security.egd=file:/dev/./urandom install"
+                    - "mvn -X clean -Djava.security.egd=file:/dev/./urandom install"
                - exec: # indicates type of task
                    command: bash
                    arguments:
