@@ -48,7 +48,7 @@ pipelines:
                     - src/test/resources/service-virtualization/VirtualServices/catalog.mari
                 deploy_env:
                   docker_compose:
-                    - src/test/resources/docker-compose.yml
+                    - /godata/pipelines/Order/src/test/resources/docker-compose.yml
               artifacts:
                - test:
                    source: target/*
