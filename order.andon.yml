@@ -45,10 +45,10 @@ pipelines:
                 service_virtualization:
                   #version: "1.2.0"
                   marifiles:
-                    - src/test/resources/service-virtualization/VirtualServices/catalog.mari
+                    - "src/test/resources/service-virtualization/VirtualServices/catalog.mari"
                 deploy_env:
                   docker_compose:
-                    - /godata/pipelines/Order/src/test/resources/docker-compose.yml
+                    - "/godata/pipelines/Order/src/test/resources/docker-compose.yml"
               artifacts:
                - test:
                    source: target/*
