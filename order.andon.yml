@@ -15,6 +15,7 @@ pipelines:
             maven: # name of the job
               andon: # andon job configuration
                 image: "andon.artifactorypro.shared.pub.tds.tieto.com/andon-gocd-agent-java8-maven3:17.04" # elastic agent image
+                sonarqube: true
               tasks:
                - exec: # indicates type of task
                    command: bash
