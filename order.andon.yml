@@ -15,7 +15,6 @@ pipelines:
             maven: # name of the job
               andon: # andon job configuration
                 image: "andon.artifactorypro.shared.pub.tds.tieto.com/andon-gocd-agent-java8-maven3:17.04" # elastic agent image
-                sonarqube: true
               tasks:
                - exec: # indicates type of task
                    command: bash
@@ -67,3 +66,14 @@ pipelines:
                    arguments:
                     - "-c" 
                     - "mvn -P robot -Drobot.url=http://order:8080 -Drobot.remote_url=http://hub:4444/wd/hub -Drobot.browser=chrome install"
+      - post: # name of stage
+          jobs:
+            docker: # name of the job
+              andon: # andon job configuration
+                image: "andon.artifactorypro.shared.pub.tds.tieto.com/andon-gocd-agent-java8-maven3:17.04" # elastic agent image
+              tasks:
+               - exec: # indicates type of task
+                   command: bash
+                   arguments:
+                    - "-c" 
+                    - "docker tag order:$GO_PIPELINE_COUNTER order:latest"
