@@ -44,7 +44,7 @@ pipelines:
                 image: "andon.artifactorypro.shared.pub.tds.tieto.com/andon-gocd-agent-java8-maven3:17.04" # elastic agent image
                 service_virtualization:
                   #version: "1.2.0"
-                  marifiles:
+                  mari_files:
                     - "src/test/resources/service-virtualization/VirtualServices/catalog.mari"
                 deploy_env:
                   docker_compose:
