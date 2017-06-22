@@ -21,7 +21,7 @@ pipelines:
                    command: bash
                    arguments:
                     - "-c" 
-                    - "mvn -X clean -Djava.security.egd=file:/dev/./urandom install"
+                    - "mvn clean -Djava.security.egd=file:/dev/./urandom install"
                - exec: # indicates type of task
                    command: bash
                    arguments:
@@ -48,7 +48,7 @@ pipelines:
                     - "src/test/resources/service-virtualization/VirtualServices/catalog.mari"
                 deploy_env:
                   docker_compose:
-                    - "/godata/pipelines/Order/src/test/resources/docker-compose.yml"
+                    - "src/test/resources/docker-compose.yml"
               artifacts:
                - test:
                    source: target/*
