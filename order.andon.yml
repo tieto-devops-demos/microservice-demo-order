@@ -46,11 +46,11 @@ pipelines:
                   #version: "1.2.0"
                   mari_files:
                     - "src/test/resources/service-virtualization/VirtualServices/catalog.mari"
-                  selenium_grid:
-                    version: "2.53.1"
-                    browsers:
-                      - chrome
-                      - firefox
+                selenium_grid:
+                  version: "2.53.1"
+                  browsers:
+                    - chrome
+                    - firefox
                 deploy_env:
                   docker_compose:
                     - "src/test/resources/docker-compose.yml"
