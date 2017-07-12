@@ -68,7 +68,7 @@ pipelines:
                     - "-c" 
                     - "mvn -P robot -Drobot.url=http://order:8080 -Drobot.remote_url=http://hub:4444/wd/hub -Drobot.browser=chrome install"
                - exec: # indicates type of task
-                   run_if: passed
+                   run_if: any
                    working_directory: .
                    command: bash
                    arguments:
