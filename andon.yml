@@ -53,7 +53,7 @@ integration_testing:
           - job: Robot
             selenium_grid: true
             browser_stack: false
-            bitbar: false
+#            bitbar: false
             tasks:
               - task: mvn -P robot -Drobot.url=http://order:8080/ui/ -Drobot.remote_url=http://hub:4444/wd/hub -Drobot.browser=chrome install
                 build_path: .
