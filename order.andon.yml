@@ -37,43 +37,43 @@ pipelines:
                    arguments:
                     - "-c" 
                     - "mvn sonar:sonar -Dsonar.login=$SONARUSER -Dsonar.password=$SONARPASSWORD -Dsonar.host.url=http://sonarqube:9000"                    
-#      - test: # name of stage
-#          jobs:
-#            integration_tests: # name of the job
-#              andon: # andon job configuration
-#                image: "andon.artifactorypro.shared.pub.tds.tieto.com/andon-gocd-agent-java8-maven3:v17.10.0" # elastic agent image
-#                service_virtualization:
-#                  #version: "1.2.0"
-#                  mari_files:
-#                    - "src/test/resources/service-virtualization/VirtualServices/catalog.mari"
-#                selenium_grid:
-#                  version: "2.53.1"
-#                  browsers:
-#                    - chrome
-#                    - firefox
-#                deploy_env:
-#                  docker_compose:
-#                    - "src/test/resources/docker-compose.yml"
-#              artifacts:
-#               - test:
-#                   source: target/*
-#              tabs:
-#                robot_report: robotframework-reports/report.html
-#              tasks:
-#               - exec: # indicates type of task
-#                   run_if: passed
-#                   working_directory: .
-#                   command: bash
-#                   arguments:
-#                    - "-c" 
-#                    - "mvn -P robot -Drobot.url=http://order:8080 -Drobot.remote_url=http://hub:4444/wd/hub -Drobot.browser=chrome install"
-#               - exec: # indicates type of task
-#                   run_if: any
-#                   working_directory: .
-#                   command: bash
-#                   arguments:
-#                    - "-c" 
-#                    - "sleep 15m"
+      - test: # name of stage
+          jobs:
+            integration_tests: # name of the job
+              andon: # andon job configuration
+                image: "andon.artifactorypro.shared.pub.tds.tieto.com/andon-gocd-agent-java8-maven3:v17.10.0" # elastic agent image
+                service_virtualization:
+                  #version: "1.2.0"
+                  mari_files:
+                    - "src/test/resources/service-virtualization/VirtualServices/catalog.mari"
+                selenium_grid:
+                  version: "2.53.1"
+                  browsers:
+                    - chrome
+                    - firefox
+                deploy_env:
+                  docker_compose:
+                    - "src/test/resources/docker-compose.yml"
+              artifacts:
+               - test:
+                   source: target/*
+              tabs:
+                robot_report: robotframework-reports/report.html
+              tasks:
+               - exec: # indicates type of task
+                   run_if: passed
+                   working_directory: .
+                   command: bash
+                   arguments:
+                    - "-c" 
+                    - "mvn -P robot -Drobot.url=http://order:8080 -Drobot.remote_url=http://hub:4444/wd/hub -Drobot.browser=chrome install"
+               - exec: # indicates type of task
+                   run_if: any
+                   working_directory: .
+                   command: bash
+                   arguments:
+                    - "-c" 
+                    - "sleep 15m"
       - post: # name of stage
           jobs:
             docker: # name of the job
