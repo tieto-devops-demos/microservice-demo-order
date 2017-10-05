@@ -1,6 +1,6 @@
 # order.andon.yml
 pipelines:
-  Order:
+  Order: 
     environment_variables:
       SONARUSER: admin
       SONARPASSWORD: admin
