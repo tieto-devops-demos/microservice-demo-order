@@ -32,7 +32,7 @@ Open Ordering App
 
 I navigate to the order form
     Open Ordering App
-    Wait Until Page Contains  Order  30 sec
+    Wait Until Page Contains  Orders  30 sec
     Click Link  Add Order
     Wait Until Page Contains  Create Order  30 sec
 
@@ -41,13 +41,13 @@ I have created an order
   
 I navigate to the orders list
   Open Ordering App 
-  Wait Until Page Contains  Order  30 sec
+  Wait Until Page Contains  Orders  30 sec
   
 I can find my order
   [Documentation]  Goes to the order details from the main page view 
   ...              and checks all the order details there
 #  Click Link  xpath=/html/body/div[2]/div/a
-  Wait Until Page Contains  Order
+  Wait Until Page Contains  Orders
   ${name}=  Get Text  xpath=/html/body/div[2]/div/table/tbody/tr/td[2]
   Should Be Equal  ${name}  Rod Johnson
 #  ${quantity}=  Get Text  xpath=/html/body/div/div[2]/table/tbody/tr/td[3]
