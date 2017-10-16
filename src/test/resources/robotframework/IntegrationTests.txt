@@ -47,7 +47,7 @@ I can find my order
   [Documentation]  Goes to the order details from the main page view 
   ...              and checks all the order details there
 #  Click Link  xpath=/html/body/div[2]/div/a
-  Wait Until Page Contains  Orders
+  Wait Until Page Contains  Order
   ${name}=  Get Text  xpath=/html/body/div[2]/div/table/tbody/tr/td[2]
   Should Be Equal  ${name}  Rod Johnson
 #  ${quantity}=  Get Text  xpath=/html/body/div/div[2]/table/tbody/tr/td[3]
