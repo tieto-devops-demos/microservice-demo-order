@@ -73,7 +73,7 @@ pipelines:
                    command: bash
                    arguments:
                     - "-c" 
-                    - "sleep 6m"
+                    - "sleep 1m"
       - post: # name of stage
           jobs:
             docker: # name of the job
