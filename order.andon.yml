@@ -15,7 +15,7 @@ pipelines:
             maven: # name of the job
               andon: # andon job configuration
                 image: "andon.artifactorypro.shared.pub.tds.tieto.com/andon-gocd-agent-java8-maven3:v17.10.0" # elastic agent image
-#                sonarqube: true
+                sonarqube: true
               tasks:
                - exec: # indicates type of task
                    command: bash
@@ -27,18 +27,11 @@ pipelines:
                    arguments:
                     - "-c" 
                     - "docker build -f Dockerfile -t order:$GO_PIPELINE_COUNTER ."
-      - check: # name of stage
-          jobs:
-            sonar: # name of the job
-              andon: # andon job configuration
-                image: "andon.artifactorypro.shared.pub.tds.tieto.com/andon-gocd-agent-java8-maven3:v17.10.0" # elastic agent image
-                sonarqube: true
-              tasks:
                - exec: # indicates type of task
                    command: bash
                    arguments:
                     - "-c" 
-                    - "mvn sonar:sonar -Dsonar.login=$SONARUSER -Dsonar.password=$SONARPASSWORD -Dsonar.host.url=http://sonarqube:9000"                    
+                    - "mvn sonar:sonar -Dsonar.login=$SONARUSER -Dsonar.password=$SONARPASSWORD -Dsonar.host.url=http://sonarqube:9000"
       - test: # name of stage
           jobs:
             integration_tests: # name of the job
