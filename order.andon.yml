@@ -14,7 +14,7 @@ pipelines:
           jobs:
             maven: # name of the job
               andon: # andon job configuration
-                image: "andon.artifactorypro.shared.pub.tds.tieto.com/andon-gocd-agent-java8-maven3:v17.10.0" # elastic agent image
+                image: "andon.artifactorypro.shared.pub.tds.tieto.com/andon-gocd-agent-java8-maven3:v17.11.0" # elastic agent image
                 sonarqube: true
               tasks:
                - exec: # indicates type of task
@@ -36,7 +36,7 @@ pipelines:
           jobs:
             integration_tests: # name of the job
               andon: # andon job configuration
-                image: "andon.artifactorypro.shared.pub.tds.tieto.com/andon-gocd-agent-java8-maven3:v17.10.0" # elastic agent image
+                image: "andon.artifactorypro.shared.pub.tds.tieto.com/andon-gocd-agent-java8-maven3:v17.11.0" # elastic agent image
                 service_virtualization:
                   #version: "1.2.0"
                   mari_files:
@@ -73,7 +73,7 @@ pipelines:
           jobs:
             docker: # name of the job
               andon: # andon job configuration
-                image: "andon.artifactorypro.shared.pub.tds.tieto.com/andon-gocd-agent-java8-maven3:v17.10.0" # elastic agent image
+                image: "andon.artifactorypro.shared.pub.tds.tieto.com/andon-gocd-agent-java8-maven3:v17.11.0" # elastic agent image
               tasks:
                - exec: # indicates type of task
                    command: bash
