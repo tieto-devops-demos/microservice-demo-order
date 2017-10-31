@@ -26,12 +26,12 @@ pipelines:
                    command: bash
                    arguments:
                     - "-c" 
-                    - "docker build -f Dockerfile -t order:$GO_PIPELINE_COUNTER ."
+                    - "mvn sonar:sonar -Dsonar.login=$SONARUSER -Dsonar.password=$SONARPASSWORD -Dsonar.host.url=http://sonarqube:9000"               
                - exec: # indicates type of task
                    command: bash
                    arguments:
                     - "-c" 
-                    - "mvn sonar:sonar -Dsonar.login=$SONARUSER -Dsonar.password=$SONARPASSWORD -Dsonar.host.url=http://sonarqube:9000"
+                    - "docker build -f Dockerfile -t order:$GO_PIPELINE_COUNTER ."
       - test: # name of stage
           jobs:
             integration_tests: # name of the job
