@@ -71,13 +71,6 @@ pipelines:
                    arguments:
                     - "-c" 
                     - "mvn -P robot -Drobot.url=http://order:8080/ui/ -Drobot.remote_url=http://hub:4444/wd/hub -Drobot.browser=chrome install"
-               - exec: # indicates type of task
-                   run_if: any
-                   working_directory: .
-                   command: bash
-                   arguments:
-                    - "-c" 
-                    - echo Hello
       - post: # name of stage
           jobs:
             docker: # name of the job
