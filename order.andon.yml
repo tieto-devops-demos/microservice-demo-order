@@ -48,7 +48,7 @@ pipelines:
                     - firefox
                 ui_def_secure_variables:
                   - TEST_LOGIN_USER
-                  - TEST_LOGIN_PASSOWRD
+                  - TEST_LOGIN_PASSWORD
                 deploy_env:
                   docker_compose:
                     - "src/test/resources/docker-compose.yml"
