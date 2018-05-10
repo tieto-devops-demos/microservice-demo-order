@@ -51,12 +51,12 @@ pipelines:
                     - "src/test/resources/docker-compose.yml"
                   docker_logins:
                     - login:
-                        login_user: srvt23gak
-                        login_password: Kalle123!
+                        login_user: $TEST_LOGIN_USER
+                        login_password: $TEST_LOGIN_PASSWORD
                         login_artifactory: andon.artifactorypro.shared.pub.tds.tieto.com
                     - login:
-                        login_user: srvt23gak
-                        login_password: Kalle123!
+                        login_user: $TEST_LOGIN_USER
+                        login_password: $TEST_LOGIN_PASSWORD
                         login_artifactory: andon.artifactorypro.shared.pub.tds.tieto.com
               artifacts:
                - test:
