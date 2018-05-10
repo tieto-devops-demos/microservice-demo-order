@@ -50,13 +50,13 @@ pipelines:
                   docker_compose:
                     - "src/test/resources/docker-compose.yml"
                   - docker_login:
-                    login_user: srvt23gak
-                    login_password: Kalle123!
-                    login_artifactory: andon.artifactorypro.shared.pub.tds.tieto.com
+                      login_user: srvt23gak
+                      login_password: Kalle123!
+                      login_artifactory: andon.artifactorypro.shared.pub.tds.tieto.com
                   - docker_login:
-                    login_user: srvt23gak
-                    login_password: Kalle123!
-                    login_artifactory: andon.artifactorypro.shared.pub.tds.tieto.com
+                      login_user: srvt23gak
+                      login_password: Kalle123!
+                      login_artifactory: andon.artifactorypro.shared.pub.tds.tieto.com
               artifacts:
                - test:
                    source: target/*
